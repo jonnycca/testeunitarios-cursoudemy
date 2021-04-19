@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.entidades.Filme;
@@ -24,7 +25,7 @@ public class LocacaoServiceTest {
 		Locacao locacao = service.alugarFilme(usuario, filme);
 		
 		//validacao
-		assertTrue(locacao.getValor() == 5.0);
+		Assert.assertEquals(5.0, locacao.getValor(), 0.1);
 		assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()));
 		assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)));
 		
