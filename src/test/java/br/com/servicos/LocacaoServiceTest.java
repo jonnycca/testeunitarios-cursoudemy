@@ -1,10 +1,13 @@
 package br.com.servicos;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.entidades.Filme;
@@ -25,7 +28,8 @@ public class LocacaoServiceTest {
 		Locacao locacao = service.alugarFilme(usuario, filme);
 		
 		//validacao
-		Assert.assertEquals(5.0, locacao.getValor(), 0.1);
+		assertThat(locacao.getValor(), is(equalTo(5.0)));
+		assertThat(locacao.getValor(), is(not(6.0)));
 		assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()));
 		assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)));
 		
