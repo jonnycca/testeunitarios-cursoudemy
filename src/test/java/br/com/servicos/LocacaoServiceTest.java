@@ -28,7 +28,7 @@ public class LocacaoServiceTest {
 		
 		//validacao
 		assertThat(locacao.getValor(), is(equalTo(5.0)));
-		assertThat(locacao.getValor(), is(not(6.0)));
+		assertThat(locacao.getValor(), is(not(7.0)));
 		assertThat(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
 		assertThat(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)), is(true));
 		
